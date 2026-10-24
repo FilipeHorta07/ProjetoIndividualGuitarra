@@ -23,7 +23,7 @@ body {
 
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
+  border-bottom: 2px solid #b00a0a;
 }
 
 .header .container {
@@ -34,26 +34,38 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  color: #ff0000;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .agora {
-  font-weight: 800;
+  font-weight: 700;
+  color: #ED145B;
 }
 
 .navbar {
-  width: 300px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 25px;
   list-style: none;
-  color: #e3b062;
+  padding: 0;
+}
+
+.navbar li a:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 6px;
 }
 
 .titulo {
-  color: #32b9cd;
+  color: #fbfbfb;
   width: fit-content;
   font-weight: 500;
+  font-family: cinzel;
+}
+
+.titulo span {
+ color: rgb(255, 0, 0);
 }
 
 .header h1 {
