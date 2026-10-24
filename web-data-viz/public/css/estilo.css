@@ -24,6 +24,7 @@ body {
 .header {
   height: var(--tamanho-header);
   border-bottom: 2px solid #b00a0a;
+  font-size: 17px;
 }
 
 .header .container {
@@ -34,12 +35,16 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #ff0000;
+  color: white;
   font-family: 'Montserrat', sans-serif;
 }
 
+.separador {
+  color: red;
+}
+
 .agora {
-  font-weight: 700;
+  font-weight: 400;
   color: #ED145B;
 }
 
@@ -55,17 +60,20 @@ body {
   text-decoration: underline;
   text-decoration-color: red;
   text-underline-offset: 6px;
+  color: red;
 }
 
 .titulo {
-  color: #fbfbfb;
+  color: #ffffff;
   width: fit-content;
   font-weight: 500;
   font-family: cinzel;
+  letter-spacing: 2px;
+  font-size: 38px;
 }
 
 .titulo span {
- color: rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
 }
 
 .header h1 {
@@ -77,12 +85,18 @@ body {
 .banner {
   height: var(--tamanho-banner);
   color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-color: black;
+  background-image:
+    linear-gradient(to right, black, transparent),
+    url('../assets/banner site.jpg');
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .banner .container {
-  justify-content: center;
+  justify-content: center left;
   align-items: center;
   height: 100%;
 }
@@ -91,12 +105,70 @@ body {
   width: 50%;
   margin: 0;
   padding: 0;
-  font-size: 36px;
+  font-family: cinzel;
+  font-size: 70px;
+  font-weight: 500;
+  transform: translateY(-60px);
 }
 
-.banner .container span {
-  font-weight: 800;
+.banner .frase_vermelha p {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  color: red;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  font-size: 15px;
 }
+
+
+.banner .container span {
+  color: red;
+}
+
+.banner .texto_descricao p {
+  position: absolute;
+  top: 55%;
+  left: 10%;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  font-size: 22px;
+  width: 500px;
+  line-height: 30px;
+}
+
+.banner .botao_explorar {
+  position: absolute;
+  top: 75%;
+  left: 10%;
+  width: 240px;
+  height: 50px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.banner .escolha_banda {
+  position: absolute;
+  top: 75%;
+  left: 27%;
+  width: 240px;
+  height: 50px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 
 /* MISSÃO VISÃO VALORES */
 
@@ -249,7 +321,7 @@ body {
 
 /* FORMULARIO */
 
-.alerta_erro{
+.alerta_erro {
   display: flex;
   justify-content: flex-end;
 }
@@ -266,7 +338,7 @@ body {
   margin-right: 10%;
 }
 
-.card_erro #mensagem_erro{
+.card_erro #mensagem_erro {
   font-weight: 500;
   font-size: 20px;
 }
@@ -322,7 +394,7 @@ input {
 
 .simulador .container {
   flex-direction: column;
-  overflow: scroll; 
+  overflow: scroll;
   height: var(--tamanho-simulador);
 }
 
@@ -366,9 +438,23 @@ input {
 }
 
 @keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
+  0% {
+    transform: rotate(25deg)
+  }
+
+  25% {
+    transform: rotate(-25deg)
+  }
+
+  50% {
+    transform: rotate(25deg)
+  }
+
+  75% {
+    transform: rotate(-25deg)
+  }
+
+  100% {
+    transform: rotate(25deg)
+  }
 }
