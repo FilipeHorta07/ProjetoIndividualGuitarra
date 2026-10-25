@@ -87,6 +87,7 @@ body {
   color: white;
   background-color: black;
   background-image:
+    linear-gradient(to bottom, transparent 65%, black 100%),
     linear-gradient(to right, black, transparent),
     url('../assets/banner site.jpg');
   background-size: cover;
@@ -169,31 +170,81 @@ body {
   cursor: pointer;
 }
 
-
 /* MISSÃO VISÃO VALORES */
 
 .social {
-  background-color: #e5e5e5;
+  background-image:
+    linear-gradient(to bottom, black 0%, transparent 40%),
+    linear-gradient(to right, black, transparent),
+    url(../assets/fundo-site.jpg);
   display: flex;
+  padding-top: 140px;
+  position: relative;
 }
 
 .social .container {
   justify-content: center;
 }
 
+.container .titulo_bandas p {
+  position: absolute;
+  top: 40px;
+  left: 10%;
+  color: red;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+}
+
+.container .titulo_guitarristas p {
+  position: absolute;
+  top: 40px;
+  left: 80%;
+  color: red;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+}
+
+.container .titulo_bandas2 p {
+  position: absolute;
+  top: 30px;
+  left: 10%;
+  color: white;
+  font-size: 50px;
+  font-family: cinzel;
+  letter-spacing: 2px;
+}
+
 .box img {
-  width: 170px;
+  width: 200px;
 }
 
 .social .container .boxes {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 30px 0;
+  padding: 0;
+  gap: 80px;
+}
+
+.social .box h4 {
+  margin-bottom: 10px;
+}
+
+
+.social .container .boxes .nome_banda {
+  font-family: cinzel;
+  font-size: 25px;
+  color: white;
+  letter-spacing: 1px;
 }
 
 .social p {
-  text-align: center;
+  text-align: left;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
 }
 
 .box {
