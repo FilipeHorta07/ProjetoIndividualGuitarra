@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -170,13 +175,13 @@ body {
   cursor: pointer;
 }
 
-/* MISSÃO VISÃO VALORES */
+/* Lendas do rock */
 
 .social {
   background-image:
-    linear-gradient(to bottom, black 0%, transparent 40%),
+    linear-gradient(to bottom, black 0%, transparent 35%, transparent 65%, black 100%),
     linear-gradient(to right, black, transparent),
-    url(../assets/fundo-site.jpg);
+    url('../assets/fundo-site.jpg');
   display: flex;
   padding-top: 140px;
   position: relative;
@@ -252,6 +257,96 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+/* Décadas do rock */
+
+.decadas {
+    background-image:
+    linear-gradient(to bottom, black 0%, transparent 35%, transparent 65%, black 100%),
+    linear-gradient(to right, black, transparent),
+    url('../assets/fundo-site.jpg');
+    padding: 80px 0;
+    color: white;
+}
+
+.decadas .container {
+  display: block;
+}
+
+.titulo_decadas p {
+  color: red;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.titulo_decadas h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 50px;
+  margin: 10px 0 30px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.cards_decadas {
+  display: flex;
+  gap: 25px;
+}
+
+.card_anos70,
+.card_anos80 {
+  width: 50%;
+  min-height: 260px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.cards_decadas h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.cards_decadas h2 span {
+  color: red;
+}
+
+.cards_decadas p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #bbbbbb;
+  line-height: 1.6;
+  width: 55%;
+  margin-bottom: 20px;
+}
+
+.cards_decadas button {
+  background-color: transparent;
+  color: red;
+  border: 1px solid red;
+  padding: 15px 20px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.card_anos70 {
+  background-image:
+    linear-gradient(to right, black 20%, transparent 100%),
+    url('../assets/metallica.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card_anos80 {
+  background-image:
+    linear-gradient(to right, black 20%, transparent 100%),
+    url('../assets/tony\ iommi\ 1970.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 /* FOOTER */
 
