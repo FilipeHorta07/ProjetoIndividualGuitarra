@@ -16,33 +16,33 @@
 </head>
 
 <body onload="listar()">
-<!-- Header Cadastro -->
-<div class="header">
+  <!-- Header Cadastro -->
+  <div class="header">
     <div class="container">
-        <h1 class="titulo">The <span>Metal</span> Eras</h1>
-        <ul class="navbar">
-            <li>
-                <a href="index.html#inicio">Início</a>
-            </li>
-            <li>
-                <a href="index.html#lendas">Bandas</a>
-            </li>
-            <li>
-                <a href="index.html#decadas">Décadas</a>
-            </li>
-            <li>
-                <a href="index.html#votacao">Votação</a>
-            </li>
-            <li class="separador">|</li>
-            <li>
-                <a href="login.html">Login</a>
-            </li>
-            <li class="agora">
-                <a href="cadastro.html">Cadastro</a>
-            </li>
-        </ul>
+      <h1 class="titulo">The <span>Metal</span> Eras</h1>
+      <ul class="navbar">
+        <li>
+          <a href="index.html#inicio">Início</a>
+        </li>
+        <li>
+          <a href="index.html#lendas">Bandas</a>
+        </li>
+        <li>
+          <a href="index.html#decadas">Décadas</a>
+        </li>
+        <li>
+          <a href="index.html#votacao">Votação</a>
+        </li>
+        <li class="separador">|</li>
+        <li>
+          <a href="login.html">Login</a>
+        </li>
+        <li class="agora">
+          <a href="cadastro.html">Cadastro</a>
+        </li>
+      </ul>
     </div>
-</div>
+  </div>
   <!--header fim-->
 
   <div class="login">
@@ -59,10 +59,6 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-          <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
           <div class="campo">
             <span>Nome:</span>
             <input id="nome_input" type="text" placeholder="Seu nome" />
@@ -91,11 +87,12 @@
   </div>
 
   <!--footer inicio-->
-  <div class="footer">
+<div class="footer">
     <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
+        <p>THE METAL ERAS | Desenvolvido para os fãs do metal</p>
+        <p>© 2026 The Metal Eras. Todos os direitos reservados.</p>
     </div>
-  </div>
+</div>
   <!--footer fim-->
 </body>
 
@@ -103,28 +100,23 @@
 
 <script>
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+  // variavel para confirmação de senha com números
+  let numeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
   function cadastrar() {
-    // aguardar();
+    // aguardar();]
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var confirmacaoSenhaVar = confirmacao_senha_input.value
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -136,19 +128,23 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
+     // verificando se a senha possui pelo menos um número
+    var temNumero = false;
+
+    for (let i = 0; i < senhaVar.length; i++) {
+        if (numeros.includes(senhaVar[i])) {
+            temNumero = true;
+        }
     }
 
+    if (temNumero == false) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML =
+            "A senha precisa conter pelo menos um número!";
+
+        finalizarAguardar();
+        return false;
+    }
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -160,8 +156,7 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
@@ -191,25 +186,7 @@
     return false;
   }
 
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
+  // removi a função listar, porque não vou usar nenhum código de confimarção, logo não preciso listar nada
 
   function sumirMensagem() {
     cardErro.style.display = "none";
