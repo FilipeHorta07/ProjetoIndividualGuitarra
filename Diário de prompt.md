@@ -16,160 +16,8 @@ Como estou no primeiro semestre da faculdade e ainda aprendendo HTML e CSS, gost
 Quero manter a estrutura HTML que já desenvolvi, realizando apenas as alterações necessárias no CSS. Não quero apenas copiar um código pronto, mas entender como controlar as cores, a direção e a intensidade do degradê para conseguir personalizar o resultado sozinho.
 
 Farei o envio da imagem do site e como esta meu css também, me ensine como poderia fazer esse efeito
-Assim esta o css das duas partes: 
-.banner {
-  height: var(--tamanho-banner);
-  color: white;
-  background-color: black;
-  background-image:
-    linear-gradient(to right, black, transparent),
-    url('../assets/banner site.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-.banner .container {
-  justify-content: center left;
-  align-items: center;
-  height: 100%;
-}
-.banner .container p {
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  font-family: cinzel;
-  font-size: 70px;
-  font-weight: 500;
-  transform: translateY(-60px);
-}
-.banner .frase_vermelha p {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  color: red;
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 2px;
-  font-size: 15px;
-}
-.banner .container span {
-  color: red;
-}
-.banner .texto_descricao p {
-  position: absolute;
-  top: 55%;
-  left: 10%;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 2px;
-  font-size: 22px;
-  width: 500px;
-  line-height: 30px;
-}
-.banner .botao_explorar {
-  position: absolute;
-  top: 75%;
-  left: 10%;
-  width: 240px;
-  height: 50px;
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  color: white;
-  background-color: red;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-.banner .escolha_banda {
-  position: absolute;
-  top: 75%;
-  left: 27%;
-  width: 240px;
-  height: 50px;
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  color: white;
-  background-color: black;
-  border: 1px solid white;
-  border-radius: 3px;
-  cursor: pointer;
-}
-/* MISSÃO VISÃO VALORES */
-.social {
-  background-image: 
-  linear-gradient(to right, black, transparent),
-  url(../assets/fundo-site.jpg);
-  display: flex;
-  padding-top: 140px;
-  position: relative; 
-}
-.social .container {
-  justify-content: center;
-}
-.container .titulo_bandas p {
-    position: absolute;
-    top: 40px;
-    left: 10%;
-    color: red;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 2px;
-}
-.container .titulo_bandas2 p {
-    position: absolute;
-    top: 30px;
-    left: 10%;
-    color: white;
-    font-size: 50px;
-    font-family: cinzel;
-    letter-spacing: 2px;
-}
-.box img {
-  width: 200px;
-}
-.social .container .boxes {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
-  gap: 80px;
-}
-.social .box h4 {
-  margin-bottom: 10px;
-}
-.social .container .boxes .nome_banda {
-  font-family: cinzel;
-  font-size: 25px;
-  color: white;
-  letter-spacing: 1px;
-}
-.social p {
-  text-align: left;
-  color: white;
-  font-family:  'Poppins', sans-serif;
-  letter-spacing: 2px;
-}
-.box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/* FOOTER */
-.footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
-  display: flex;
-  font-size: 15px;
-}
-.footer .container {
-  justify-content: center;
-  text-align: center;
-}
-.footer .container .version {
-  font-size: 12px;
-}
+
+---------------------------------------------------------------------------------------------------------------------------------
 
 
 Diário de prompt –
@@ -196,6 +44,8 @@ Me apresente algumas opções com as imagens e os links de onde foram encontrada
 
 Quero que me dê alguns exemplos de fotos de outros shows reais também, caso eu não goste das de Moscou.
 
+---------------------------------------------------------------------------------------------------------------------------------
+
 Diário de prompt –
 
 02/11/2026 – ChatGPT
@@ -215,3 +65,58 @@ Vou te enviar duas imagens dos códigos para você comparar. Quero que gere o HT
 Preciso que os links funcionem corretamente entre as páginas e que a classe "agora" continue indicando a página atual.
 
 Mantenha a estrutura e as classes que já utilizo, alterando apenas o necessário. Me envie os dois códigos separados e explique brevemente as mudanças.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Diário de Prompt -
+
+10/11/2026 – ChatGPT
+
+Tema: Correção de erro SQL MySQL – Cadastro de usuários
+
+Durante o desenvolvimento do meu projeto individual, The Metal Eras, estava realizando a integração da tela de cadastro com o banco de dados MySQL, utilizando a estrutura do Web-Data-Viz.
+
+Após configurar o banco, adaptar o Model e o Controller e conferir as rotas, tentei cadastrar um usuário, mas recebi um erro `500 (Internal Server Error)` no console do navegador. Ao verificar o terminal, encontrei o erro `ER_PARSE_ERROR`, relacionado à sintaxe da consulta SQL.
+
+Como não consegui interpretar corretamente a mensagem, utilizei a IA para me auxiliar na identificação do problema, enviando os códigos do `usuarioModel.js` e do `config.js`, além dos prints dos erros.
+
+Com a análise, entendi que o Model estava enviando os dados através de um vetor de parâmetros, mas a função `executar()` do `config.js` não estava preparada para recebê-los. Por isso, os caracteres `?` estavam chegando ao MySQL sem serem substituídos pelos valores correspondentes.
+
+A correção consistiu em adaptar a função `executar()` para receber os parâmetros e repassá-los à consulta SQL:
+
+Antes:
+
+function executar(instrucao)
+
+Depois:
+
+javascript
+function executar(instrucao, parametros = [])
+
+Também foi necessário alterar a execução da consulta:
+
+javascript
+conexao.query (instrucao, parametros, function (erro, resultados))
+
+
+Após compreender o motivo do erro e realizar as alterações, testei novamente o cadastro e consegui registrar o usuário no banco de dados.
+
+Com isso, aprendi melhor como funciona a passagem de parâmetros entre o Model e o arquivo de configuração do banco, além de entender a importância de analisar as mensagens do terminal para identificar erros.
+
+Link da conversa: https://chatgpt.com/share/6af3978b-f01c-83e9-8bfc-7984d2324acc
+
+
+Prompt enviado para a IA
+
+Estou dando continuidade ao meu projeto individual, o The Metal Eras, que já utilizei em outras conversas com o ChatGPT.
+
+Atualmente, estou tentando conectar a tela de cadastro ao banco de dados MySQL, utilizando a estrutura do Web-Data-Viz. Já configurei o banco, adaptei o Model e o Controller e conferi as rotas.
+
+Quero que você me ajude a identificar a causa desse erro, verificando se existe alguma incompatibilidade entre o `usuarioModel.js` e o `config.js` (vou te enviar os dois).
+
+Não quero que você reescreva meu código inteiro. Prefiro que indique quais trechos devo conferir, explique o motivo do erro e me oriente nas alterações necessárias, mantendo a arquitetura original do Web-Data-Viz.
+
+Agora vou enviar os erros que apareceram no terminal e no console. Sinceramente, não consegui interpretar da forma correta. Me explica o que tenho que fazer e o motivo do erro também.
+
+
+(enviei as fotos contendo os erros, mas não consigo incrementar aqui)
