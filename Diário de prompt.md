@@ -76,13 +76,13 @@ Tema: Correção de erro SQL MySQL – Cadastro de usuários
 
 Durante o desenvolvimento do meu projeto individual, The Metal Eras, estava realizando a integração da tela de cadastro com o banco de dados MySQL, utilizando a estrutura do Web-Data-Viz.
 
-Após configurar o banco, adaptar o Model e o Controller e conferir as rotas, tentei cadastrar um usuário, mas recebi um erro `500 (Internal Server Error)` no console do navegador. Ao verificar o terminal, encontrei o erro `ER_PARSE_ERROR`, relacionado à sintaxe da consulta SQL.
+Após configurar o banco, adaptar o Model e o Controller e conferir as rotas, tentei cadastrar um usuário, mas recebi um erro 500 (Internal Server Error) no console do navegador. Ao verificar o terminal, encontrei o erro `ER_PARSE_ERROR`, relacionado à sintaxe da consulta SQL.
 
-Como não consegui interpretar corretamente a mensagem, utilizei a IA para me auxiliar na identificação do problema, enviando os códigos do `usuarioModel.js` e do `config.js`, além dos prints dos erros.
+Como não consegui interpretar corretamente a mensagem, utilizei a IA para me auxiliar na identificação do problema, enviando os códigos do usuarioModel.js e do config.js, além dos prints dos erros.
 
-Com a análise, entendi que o Model estava enviando os dados através de um vetor de parâmetros, mas a função `executar()` do `config.js` não estava preparada para recebê-los. Por isso, os caracteres `?` estavam chegando ao MySQL sem serem substituídos pelos valores correspondentes.
+Com a análise, entendi que o Model estava enviando os dados através de um vetor de parâmetros, mas a função executar() do config.js não estava preparada para recebê-los. Por isso, os caracteres ? estavam chegando ao MySQL sem serem substituídos pelos valores correspondentes.
 
-A correção consistiu em adaptar a função `executar()` para receber os parâmetros e repassá-los à consulta SQL:
+A correção consistiu em adaptar a função executar() para receber os parâmetros e repassá-los à consulta SQL:
 
 Antes:
 
@@ -120,3 +120,22 @@ Agora vou enviar os erros que apareceram no terminal e no console. Sinceramente,
 
 
 (enviei as fotos contendo os erros, mas não consigo incrementar aqui)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+11/11/2026 – ChatGPT
+
+Aprendi a utilizar o :hover junto com o transform: translateY(-5px) para criar um efeito de destaque nos cards da dashboard, fazendo com que eles subam um pouco quando o usuário passa o mouse. Também entendi que o `transition` deixa a movimentação mais suave.
+
+Consegui aplicar o efeito no CSS que já tinha desenvolvido.
+
+Link da conversa: https://chatgpt.com/share/6af50bcd-979c-83e8-94c2-9b9f3451d2ad
+
+Prompt enviado para a IA:
+
+Estou desenvolvendo a dashboard do meu projeto individual, The Metal Eras, e queria adicionar um efeito nos botões e cards.
+
+Gostaria que, ao passar o cursor do mouse sobre eles, se movimentassem um pouco para a frente, criando um efeito de destaque.
+
+Como posso fazer isso utilizando CSS? Quero entender quais propriedades utilizar e como funcionam, sem precisar alterar muito meu código atual.
+
