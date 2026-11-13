@@ -6,53 +6,54 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
+create database if not exists the_metal_eras;
 
-USE aquatech;
+use the_metal_eras;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+create table if not exists usuario (
+    id int primary key auto_increment,
+    nome varchar(100) not null,
+    email varchar(150) not null unique,
+    senha varchar(255) not null
 );
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+select id, nome, email, senha from usuario;
+
+create table banda (
+    id int primary key auto_increment,
+    nome varchar(100) not null unique,
+    votos_iniciais int not null default 0
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+insert into banda (nome, votos_iniciais) values
+('Pink Floyd', 350),
+('Black Sabbath', 270),
+('Metallica', 320),
+('Iron Maiden', 300),
+('Led Zeppelin', 245),
+('Judas Priest', 210),
+('Megadeth', 290),
+('Van Halen', 205),
+('Guns N'' Roses', 260),
+('Pantera', 230);
+
+select * from banda;
+
+create table voto (
+    id int primary key auto_increment,
+    fk_usuario int not null unique,
+    fk_banda int not null,
+    foreign key (fk_usuario) references usuario(id),
+    foreign key (fk_banda) references banda(id)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+insert into voto (fk_usuario, fk_banda)
+values (1, 1);
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+select
+    usuario.nome as usuario,
+    banda.nome as banda
+from voto
+join usuario on voto.fk_usuario = usuario.id
+join banda on voto.fk_banda = banda.id;

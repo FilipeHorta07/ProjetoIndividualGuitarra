@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>The Metal Eras | Tempo Real</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -48,86 +48,227 @@
 
         </div>
 
+
         <div class="dash">
 
             <div class="cabecalho-bandas">
-                <h1>AS BANDAS DO <span>LEGADO</span></h1>
-                <p>Conheça as bandas presentes na votação do The Metal Eras.</p>
+                <h1>ESCOLHA A SUA <span>BANDA FAVORITA</span></h1>
+                <p>Clique no card da banda que você mais gosta. Seu voto ajuda a definir as bandas
+                    mais marcantes do rock
+                </p>
             </div>
+
 
             <div class="cards">
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-pink-floyd" onclick="votarPinkFloyd()">
                     <h2>Pink Floyd</h2>
-                    <span>ANOS 1970</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_pink">0</span></p>
+                </button>
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-black-sabbath" onclick="votarBlackSabbath()">
                     <h2>Black Sabbath</h2>
-                    <span>ANOS 1970</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_sabbath">0</span></p>
+                </button>
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-metallica" onclick="votarMetallica()">
                     <h2>Metallica</h2>
-                    <span>ANOS 1980</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_metallica">0</span></p>
+                </button>
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-iron-maiden" onclick="votarIronMaiden()">
                     <h2>Iron Maiden</h2>
-                    <span>ANOS 1980</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_maiden">0</span></p>
+                </button>
 
-
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-led-zeppelin" onclick="votarLedZeppelin()">
                     <h2>Led Zeppelin</h2>
-                    <span>ANOS 1970</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_zeppelin">0</span></p>
+                </button>
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-judas-priest" onclick="votarJudasPriest()">
                     <h2>Judas Priest</h2>
-                    <span>ANOS 1970</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_priest">0</span></p>
+                </button>
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-megadeth" onclick="votarMegadeth()">
                     <h2>Megadeth</h2>
-                    <span>ANOS 1980</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_megadeth">0</span></p>
+                </button>
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-van-halen" onclick="votarVanHalen()">
                     <h2>Van Halen</h2>
-                    <span>ANOS 1980</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_vanhalen">0</span></p>
+                </button>
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-guns-n-roses" onclick="votarGunsNRoses()">
                     <h2>Guns N' Roses</h2>
-                    <span>ANOS 1980</span>
-                    <p>Votos: --</p>
-                </div>
+                    <p>Votos: <span id="votos_guns">0</span></p>
+                </button>
 
-                <div class="card-aquario">
+                <button type="button" class="card-aquario banda-pantera" onclick="votarPantera()">
                     <h2>Pantera</h2>
-                    <span>ANOS 1990</span>
-                    <p>Votos: --</p>
-                </div>
-
+                    <p>Votos: <span id="votos_pantera">0</span></p>
+                </button>
 
             </div>
 
+
         </div>
+
 
     </div>
 
 </body>
 
 <script>
+
+
+    var votosPinkFloyd = [];
+    var votosBlackSabbath = [];
+    var votosMetallica = [];
+    var votosIronMaiden = [];
+    var votosLedZeppelin = [];
+    var votosJudasPriest = [];
+    var votosMegadeth = [];
+    var votosVanHalen = [];
+    var votosGunsNRoses = [];
+    var votosPantera = [];
+
+    var jaVotou = false;
+
+
+    function votarPinkFloyd() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosPinkFloyd.push(1);
+            votos_pink.innerHTML = votosPinkFloyd.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarBlackSabbath() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosBlackSabbath.push(1);
+            votos_sabbath.innerHTML = votosBlackSabbath.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarMetallica() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosMetallica.push(1);
+            votos_metallica.innerHTML = votosMetallica.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarIronMaiden() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosIronMaiden.push(1);
+            votos_maiden.innerHTML = votosIronMaiden.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarLedZeppelin() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosLedZeppelin.push(1);
+            votos_zeppelin.innerHTML = votosLedZeppelin.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarJudasPriest() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosJudasPriest.push(1);
+            votos_priest.innerHTML = votosJudasPriest.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarMegadeth() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosMegadeth.push(1);
+            votos_megadeth.innerHTML = votosMegadeth.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarVanHalen() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosVanHalen.push(1);
+            votos_vanhalen.innerHTML = votosVanHalen.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarGunsNRoses() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosGunsNRoses.push(1);
+            votos_guns.innerHTML = votosGunsNRoses.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+    function votarPantera() {
+
+        if (jaVotou == true) {
+            alert("Você já votou!");
+        } else {
+            votosPantera.push(1);
+            votos_pantera.innerHTML = votosPantera.length;
+
+            jaVotou = true;
+            alert("Voto registrado com sucesso!");
+        }
+    }
+
+
 
     function exibirAquarios() {
         JSON.parse(sessionStorage.AQUARIOS).forEach(item => {

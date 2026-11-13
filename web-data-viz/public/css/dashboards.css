@@ -131,6 +131,7 @@ body {
 
 .dash .cabecalho-bandas h1 {
   color: white;
+  font-size: 40px;
 }
 
 .dash .cabecalho-bandas span {
@@ -207,17 +208,23 @@ body {
 .cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  gap: 18px;
   width: 100%;
   height: auto;
-  color: white;
+}
+
+.cards .card-aquario:hover {
+  border-color: red;
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px red;
 }
 
 .card-aquario {
   width: 100%;
   min-width: 0;
   max-width: none;
-  height: 170px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   margin: 0;
   padding: 15px 10px;
   background-color: #151515;
@@ -231,12 +238,32 @@ body {
   text-align: center;
   color: white;
   transition: 0.3s;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font: inherit;
 }
 
-.card-aquario:hover {
-  border-color: #c91420;
-  transform: translateY(-5px);
+.card-aquario .nome-banda {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
+
+.card-aquario .info-votos {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #cccccc;
+    margin-top: 20px;
+}
+
+.card-selecionado {
+    border-color: #ff0000;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
 
 .card-aquario h1 {
   width: fit-content;
@@ -252,7 +279,6 @@ body {
 .card-aquario span {
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  color: #c91420;
 }
 
 .card-aquario p {
@@ -285,6 +311,60 @@ body {
   font-weight: lighter;
   margin: 20px;
 }
+
+
+/* IMAGENS DAS BANDAS */
+
+.banda-pink-floyd {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/the\ dark\ side\ of\ the\ moon.jpg");
+}
+
+.banda-black-sabbath {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/black-sabbath-paranoid.jpeg");
+}
+
+.banda-metallica {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/KillEmAll.jpg");
+}
+
+.banda-iron-maiden {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/iron-maiden.jpg");
+}
+
+.banda-led-zeppelin {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/LED_ZEPPELIN.jpg");
+}
+
+.banda-judas-priest {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/painkillerJudasPriest.jpg");
+}
+
+.banda-megadeth {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/megadeth.jpg");
+}
+
+.banda-van-halen {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/van-halen.jpeg");
+}
+
+.banda-guns-n-roses {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/guns.jpg");
+}
+
+.banda-pantera {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/pantera.jpeg");
+}
+
 
 .temperatura {
   margin: 5px;
@@ -459,7 +539,8 @@ canvas {
 
 .btn-nav-white:hover {
   border-color: #c91420;
-  background-color: #242424;
+  box-shadow: 0 8px 20px red;
+  transform: translateY(-1px);
 }
 
 .btn-nav-white h3 {
