@@ -139,3 +139,21 @@ Gostaria que, ao passar o cursor do mouse sobre eles, se movimentassem um pouco 
 
 Como posso fazer isso utilizando CSS? Quero entender quais propriedades utilizar e como funcionam, sem precisar alterar muito meu código atual.
 
+
+
+
+14/11/2026 – ChatGPT
+
+Gerar funções de votação
+
+Consegui entender e implementar a primeira função de votação utilizando o `fetch()` para enviar os dados ao banco pela API do Web-Data-Viz. Como as outras nove funções seguem a mesma lógica, utilizei a IA para gerar o restante do código e evitar um trabalho repetitivo, mantendo a estrutura que já havia desenvolvido.
+
+Link da conversa: https://chatgpt.com/share/6af87564-bd30-83e9-89d7-0bacec9f4616
+
+Prompt enviado para a IA:
+
+Estou desenvolvendo o sistema de votação do meu projeto individual, The Metal Eras, e consegui interpretar e implementar a função votarPinkFloyd(), utilizando o fetch() para enviar o voto ao banco de dados pela API do Web-Data-Viz.
+
+Como as funções das outras nove bandas seguem praticamente a mesma lógica, mudando apenas o nome da função e o ID da banda, gostaria que você gerasse as funções restantes para evitar um trabalho repetitivo.
+
+Mantenha a mesma estrutura que utilizei, sem parâmetros e sem adicionar comandos desnecessários.

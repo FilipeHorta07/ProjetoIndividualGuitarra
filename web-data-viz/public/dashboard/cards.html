@@ -20,7 +20,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao()">>
+<body onload="validarSessao(); listarVotos()">
 
     <div class="janela">
 
@@ -138,16 +138,43 @@
     var jaVotou = false;
 
 
+
     function votarPinkFloyd() {
 
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosPinkFloyd.push(1);
-            votos_pink.innerHTML = votosPinkFloyd.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 1
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -156,11 +183,37 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosBlackSabbath.push(1);
-            votos_sabbath.innerHTML = votosBlackSabbath.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 2
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -169,11 +222,37 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosMetallica.push(1);
-            votos_metallica.innerHTML = votosMetallica.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 3
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -182,11 +261,37 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosIronMaiden.push(1);
-            votos_maiden.innerHTML = votosIronMaiden.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 4
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -195,11 +300,37 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosLedZeppelin.push(1);
-            votos_zeppelin.innerHTML = votosLedZeppelin.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 5
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -208,11 +339,37 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosJudasPriest.push(1);
-            votos_priest.innerHTML = votosJudasPriest.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 6
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -221,11 +378,37 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosMegadeth.push(1);
-            votos_megadeth.innerHTML = votosMegadeth.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 7
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -234,11 +417,37 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosVanHalen.push(1);
-            votos_vanhalen.innerHTML = votosVanHalen.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 8
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -247,11 +456,37 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosGunsNRoses.push(1);
-            votos_guns.innerHTML = votosGunsNRoses.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 9
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
@@ -260,33 +495,105 @@
         if (jaVotou == true) {
             alert("Você já votou!");
         } else {
-            votosPantera.push(1);
-            votos_pantera.innerHTML = votosPantera.length;
 
-            jaVotou = true;
-            alert("Voto registrado com sucesso!");
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            fetch("/votos/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    idBandaServer: 10
+                })
+            })
+                .then(function (resposta) {
+
+                    if (resposta.status == 201) {
+                        jaVotou = true;
+                        listarVotos();
+                        alert("Voto registrado com sucesso!");
+                    } else if (resposta.status == 409) {
+                        jaVotou = true;
+                        alert("Você já votou!");
+                    } else {
+                        alert("Não foi possível registrar o voto!");
+                    }
+
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    alert("Erro de comunicação com o servidor!");
+                });
         }
     }
 
 
 
-    function exibirAquarios() {
-        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-            document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
-                            <h1>${item.descricao}</h1>
-                        </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.id}"></div>
-                    </div>
-                    </div>
-                    `
-        });
+    function listarVotos() {
+
+        fetch("/votos/listar", {
+            method: "GET"
+        })
+            .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (resultado) {
+
+                for (var i = 0; i < resultado.length; i++) {
+
+                    if (resultado[i].id == 1) {
+                        votos_pink.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 2) {
+                        votos_sabbath.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 3) {
+                        votos_metallica.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 4) {
+                        votos_maiden.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 5) {
+                        votos_zeppelin.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 6) {
+                        votos_priest.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 7) {
+                        votos_megadeth.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 8) {
+                        votos_vanhalen.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 9) {
+                        votos_guns.innerHTML = resultado[i].total_votos;
+                    }
+
+                    if (resultado[i].id == 10) {
+                        votos_pantera.innerHTML = resultado[i].total_votos;
+                    }
+
+                }
+
+            })
+            .catch(function (erro) {
+                console.log(erro);
+            });
+
     }
+
+
+
 
 </script>
 
