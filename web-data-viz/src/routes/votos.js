@@ -15,4 +15,8 @@ router.post("/cadastrar", function (req, res) {
     votoController.cadastrar(req, res);
 });
 
+router.get("/escolha/:idUsuario", function (req, res) {
+    votoController.buscarEscolha(req, res);
+});
+
 module.exports = router;

@@ -42,8 +42,25 @@ function cadastrar(req, res) {
         });
 }
 
+
+function buscarEscolha(req, res) {
+
+    var idUsuario = req.params.idUsuario;
+
+    votoModel.buscarEscolha(idUsuario)
+        .then(function (resultado) {
+            res.status(200).json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            res.status(500).send("Erro ao buscar a escolha!");
+        });
+}
+
+
 module.exports = {
     testar,
     listar,
-    cadastrar
+    cadastrar,
+    buscarEscolha
 };

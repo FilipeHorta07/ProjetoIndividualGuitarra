@@ -27,7 +27,22 @@ function cadastrar(idUsuario, idBanda) {
     return database.executar(instrucaoSql, [idUsuario, idBanda]);
 }
 
+
+function buscarEscolha(idUsuario) {
+
+    var instrucaoSql = `
+        select banda.nome
+        from voto
+        join banda on voto.fk_banda = banda.id
+        where voto.fk_usuario = ?;
+    `;
+
+    return database.executar(instrucaoSql, [idUsuario]);
+}
+
+
 module.exports = {
     listar,
-    cadastrar
+    cadastrar,
+    buscarEscolha
 };

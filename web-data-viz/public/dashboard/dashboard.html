@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Metal Eras | Dashboards</title>
 
-    
+
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
@@ -28,11 +28,11 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body>
+<body onload="validarSessao(); carregarKpis(); carregarEscolha(); carregarGrafico()">
 
     <div class="janela">
         <div class="header-left">
-           <h1>The <span>Metal</span> Eras</h1>
+            <h1>The <span>Metal</span> Eras</h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -56,17 +56,44 @@
 
         </div>
 
+
+
         <div class="dash">
-            <div id="alerta">
+
+            <div class="cabecalho-bandas">
+                <h1>PAINEL DE <span>RESULTADOS</span></h1>
+                <p>Acompanhe os resultados da votação do The Metal Eras.</p>
             </div>
 
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+            <div class="kpis">
+
+                <div class="kpi-card">
+                    <h3>BANDA MAIS VOTADA</h3>
+                    <h2 id="kpi_banda">--</h2>
+                </div>
+
+                <div class="kpi-card">
+                    <h3>TOTAL DE VOTOS</h3>
+                    <h2 id="kpi_total">--</h2>
+                </div>
+
+                <div class="kpi-card">
+                    <h3>SUA ESCOLHA</h3>
+                    <h2 id="kpi_escolha">--</h2>
+                </div>
+
             </div>
-            <div id="graficos">
+
+            <div class="grafico-votacao">
+                <h2>VOTOS POR BANDA - (desde 10/01/2026)</h2>
+
+                <div class="area-grafico">
+                    <canvas id="graficoBandas"></canvas>
+                </div>
             </div>
+
         </div>
-    </div>
+
 
 
 </body>
@@ -74,6 +101,135 @@
 </html>
 
 <script>
+
+    var nomesBandas = [];
+    var votosBandas = [];
+
+    var grafico = new Chart(document.getElementById("graficoBandas"), {
+        type: "bar",
+        data: {
+            labels: nomesBandas,
+            datasets: [{
+                label: "Votos",
+                data: votosBandas,
+                backgroundColor: "#c91420",
+                borderRadius: 5
+            }]
+        },
+        options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: "white"
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: "white"
+                    }
+                }
+            }
+        }
+    });
+
+
+    function carregarKpis() {
+
+        fetch("/votos/listar", {
+            method: "GET"
+        })
+            .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (resultado) {
+
+                var totalVotos = 0;
+                var maiorVoto = 0;
+                var bandaMaisVotada = "";
+
+                for (var i = 0; i < resultado.length; i++) {
+
+                    totalVotos += resultado[i].total_votos;
+
+                    if (resultado[i].total_votos > maiorVoto) {
+                        maiorVoto = resultado[i].total_votos;
+                        bandaMaisVotada = resultado[i].nome;
+                    }
+                }
+
+                document.getElementById("kpi_banda").innerHTML = bandaMaisVotada;
+                document.getElementById("kpi_total").innerHTML = totalVotos;
+
+            })
+            .catch(function (erro) {
+                console.log(erro);
+            });
+    }
+
+
+    function carregarEscolha() {
+
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/votos/escolha/${idUsuario}`, {
+            method: "GET"
+        })
+            .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (resultado) {
+
+                if (resultado.length > 0) {
+                    document.getElementById("kpi_escolha").innerHTML = resultado[0].nome;
+                } else {
+                    document.getElementById("kpi_escolha").innerHTML = "Ainda não votou";
+                }
+
+            })
+            .catch(function (erro) {
+                console.log(erro);
+            });
+    }
+
+
+    function carregarGrafico() {
+
+        fetch("/votos/listar", {
+            method: "GET"
+        })
+            .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (resultado) {
+
+                nomesBandas.length = 0;
+                votosBandas.length = 0;
+
+                for (var i = 0; i < resultado.length; i++) {
+
+                    nomesBandas.push(resultado[i].nome);
+                    votosBandas.push(resultado[i].total_votos);
+
+                }
+
+                grafico.update();
+
+            })
+            .catch(function (erro) {
+                console.log(erro);
+            });
+    }
+
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
@@ -198,13 +354,13 @@
         let dados = {
             labels: labels,
             datasets: [
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
+                {
+                    label: 'Temperatura',
+                    data: [],
+                    fill: false,
+                    borderColor: 'rgb(199, 52, 52)',
+                    tension: 0.1
+                }]
         };
 
         console.log('----------------------------------------------')
