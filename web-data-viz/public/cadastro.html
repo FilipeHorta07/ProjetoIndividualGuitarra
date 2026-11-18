@@ -172,6 +172,14 @@
       return false;
     }
 
+        var temEspecial = false;
+
+    for (let i = 0; i < senhaVar.length; i++) {
+        if (caracteresEspeciais.includes(senhaVar[i])) {
+            temEspecial = true;
+        }
+    }
+
 
 
     // Enviando o valor da nova input
