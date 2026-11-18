@@ -145,22 +145,31 @@
       return false;
     }
 
-        if (senhaVar.length < 8) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "A senha precisa ter pelo menos 8 caracteres!";
+    if (senhaVar.length < 8) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "A senha precisa ter pelo menos 8 caracteres!";
 
-        finalizarAguardar();
-        return false;
+      finalizarAguardar();
+      return false;
     }
 
-        if (senhaVar == senhaVar.toLowerCase()) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "A senha precisa conter pelo menos uma letra maiúscula!";
+    if (senhaVar == senhaVar.toLowerCase()) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "A senha precisa conter pelo menos uma letra maiúscula!";
 
-        finalizarAguardar();
-        return false;
+      finalizarAguardar();
+      return false;
+    }
+
+    if (senhaVar == senhaVar.toUpperCase()) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "A senha precisa conter pelo menos uma letra minúscula!";
+
+      finalizarAguardar();
+      return false;
     }
 
 
