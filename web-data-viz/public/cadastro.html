@@ -172,12 +172,30 @@
       return false;
     }
 
-        var temEspecial = false;
+    var temEspecial = false;
 
     for (let i = 0; i < senhaVar.length; i++) {
-        if (caracteresEspeciais.includes(senhaVar[i])) {
-            temEspecial = true;
-        }
+      if (caracteresEspeciais.includes(senhaVar[i])) {
+        temEspecial = true;
+      }
+    }
+
+    if (temEspecial == false) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "A senha precisa conter pelo menos um caractere especial!";
+
+      finalizarAguardar();
+      return false;
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "As senhas não coincidem!";
+
+      finalizarAguardar();
+      return false;
     }
 
 
