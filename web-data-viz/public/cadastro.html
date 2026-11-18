@@ -154,6 +154,15 @@
         return false;
     }
 
+        if (senhaVar == senhaVar.toLowerCase()) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML =
+            "A senha precisa conter pelo menos uma letra maiúscula!";
+
+        finalizarAguardar();
+        return false;
+    }
+
 
 
     // Enviando o valor da nova input
