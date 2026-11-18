@@ -588,6 +588,29 @@ html {
 
 /* LOGIN E CADASTRO */
 
+
+
+.login.pagina-cadastro {
+  height: auto;
+  min-height: calc(100vh - var(--tamanho-header));
+  padding: 35px 0 50px;
+  box-sizing: border-box;
+}
+
+
+.pagina-cadastro .container {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagina-cadastro .card-cadastro {
+  height: auto;
+  margin: 0 auto;
+}
+
+
 .login {
   height: var(--tamanho-login);
   background-image: url('../assets/fundo cadastro.jpeg');
@@ -600,11 +623,14 @@ html {
   color: red;
 }
 
-.login .container {
+
+.login.pagina-cadastro .container {
+  height: auto;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
 }
+
 
 .regras-senha {
   color: #999999;
