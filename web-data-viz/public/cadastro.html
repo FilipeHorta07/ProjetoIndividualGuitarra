@@ -11,7 +11,7 @@
   <script src="./js/sessao.js"></script>
 
   <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
+  <link rel="icon" href="../assets/logo metal eras.png" type="image/png">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
@@ -29,9 +29,6 @@
         </li>
         <li>
           <a href="index.html#decadas">Décadas</a>
-        </li>
-        <li>
-          <a href="index.html#votacao">Votação</a>
         </li>
         <li class="separador">|</li>
         <li>
@@ -87,12 +84,12 @@
   </div>
 
   <!--footer inicio-->
-<div class="footer">
+  <div class="footer">
     <div class="container">
-        <p>THE METAL ERAS | Desenvolvido para os fãs do metal</p>
-        <p>© 2026 The Metal Eras. Todos os direitos reservados.</p>
+      <p>THE METAL ERAS | Desenvolvido para os fãs do metal</p>
+      <p>© 2026 The Metal Eras. Todos os direitos reservados.</p>
     </div>
-</div>
+  </div>
   <!--footer fim-->
 </body>
 
@@ -102,6 +99,8 @@
 
   // variavel para confirmação de senha com números
   let numeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+  let caracteresEspeciais = ["?", "!", "@", "#", ":"];
 
   function cadastrar() {
     // aguardar();]
@@ -128,23 +127,35 @@
       setInterval(sumirMensagem, 5000);
     }
 
-     // verificando se a senha possui pelo menos um número
+    // verificando se a senha possui pelo menos um número
     var temNumero = false;
 
     for (let i = 0; i < senhaVar.length; i++) {
-        if (numeros.includes(senhaVar[i])) {
-            temNumero = true;
-        }
+      if (numeros.includes(senhaVar[i])) {
+        temNumero = true;
+      }
     }
 
     if (temNumero == false) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "A senha precisa conter pelo menos um número!";
+
+      finalizarAguardar();
+      return false;
+    }
+
+        if (senhaVar.length < 8) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML =
-            "A senha precisa conter pelo menos um número!";
+            "A senha precisa ter pelo menos 8 caracteres!";
 
         finalizarAguardar();
         return false;
     }
+
+
+
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
