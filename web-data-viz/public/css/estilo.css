@@ -712,12 +712,45 @@ html {
 }
 
 
-.regras-senha {
-  color: #999999;
+.senha {
+  position: relative;
+}
+
+.popover-requisitos {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
+  background-color: #111;
+  border: 1px solid #a00;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-top: 6px;
+  color: #999;
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
-  margin-top: 10px;
   line-height: 1.8;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+}
+
+.popover-requisitos div,
+.popover-requisitos span {
+  font-size: 13px;
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.senha:focus-within .popover-requisitos {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .login.pagina-login {
@@ -789,6 +822,15 @@ html {
   flex-direction: column;
   justify-content: start;
   gap: 7px;
+}
+
+.campo .popover-requisitos span {
+  display: inline;
+  font-size: 13px;
+  line-height: 1.8;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
 
 /* INPUTS */
