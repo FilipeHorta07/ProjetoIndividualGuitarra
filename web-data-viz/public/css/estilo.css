@@ -640,6 +640,27 @@ html {
   line-height: 1.8;
 }
 
+.login.pagina-login {
+  height: auto;
+  min-height: calc(100vh - var(--tamanho-header));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;      /* centraliza na vertical */
+  justify-content: center;  /* centraliza na horizontal */
+}
+
+.pagina-login .container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagina-login .card-login {
+  margin: 0 auto;
+}
+
 /* CARD */
 
 .card {
