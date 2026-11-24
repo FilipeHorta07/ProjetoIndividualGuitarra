@@ -157,3 +157,45 @@ Estou desenvolvendo o sistema de votação do meu projeto individual, The Metal 
 Como as funções das outras nove bandas seguem praticamente a mesma lógica, mudando apenas o nome da função e o ID da banda, gostaria que você gerasse as funções restantes para evitar um trabalho repetitivo.
 
 Mantenha a mesma estrutura que utilizei, sem parâmetros e sem adicionar comandos desnecessários.
+
+24/11/2026 – ChatGPT
+
+Revisão completa da documentação do projeto
+
+Utilizei a IA para realizar uma revisão completa da documentação do meu projeto individual The Metal Eras. O objetivo foi verificar se as informações estavam organizadas, coerentes e de acordo com o que foi desenvolvido, além de identificar possíveis erros de português, repetições e pontos que precisavam de mais clareza.
+
+Durante a revisão, foram identificados alguns pontos que precisavam de atenção, como a delimitação do conteúdo histórico às décadas de 1970 e 1980, a descrição das funcionalidades do dashboard, a explicação sobre a integração das APIs e a organização das referências bibliográficas.
+
+Também foram feitos ajustes no conteúdo para deixar a documentação mais alinhada à proposta atual do projeto, preservando minha trajetória pessoal com a guitarra e as informações que já estavam presentes no documento. Além disso, retirei as referências à API Dat-Aqui-No, mantendo apenas a Web-Data-Viz.
+
+Com essa revisão, consegui identificar melhorias importantes e deixar a documentação mais clara, organizada e coerente com o desenvolvimento do projeto.
+
+Link da conversa: https://chatgpt.com/share/6b060ffe-36d8-83e8-983d-d5cb77aa88ff
+
+Prompt enviado para IA:
+
+"Quero que você faça uma revisão completa da minha documentação do projeto individual The Metal Eras, da SPTech.
+
+O projeto é um site interativo sobre rock e guitarra, com foco nas décadas de 1970 e 1980. Ele também aborda minha trajetória pessoal com a guitarra e utiliza HTML, CSS, JavaScript, banco de dados MySQL, uma máquina virtual Linux e as APIs obrigatórias Dat-Aqui-No e Web-Data-Viz.
+
+Analise todo o documento, do início ao fim, considerando os seguintes pontos:
+1. Coerência do conteúdo: verifique se as informações fazem sentido entre si e se todas as seções estão alinhadas com a proposta do projeto.
+2. Contextualização histórica: confira se a pesquisa está realmente direcionada às décadas de 1970 e 1980, evitando informações sobre outros períodos que não sejam necessárias para a proposta.
+3. Objetivo, justificativa e escopo: avalie se essas partes estão bem desenvolvidas, se não apresentam contradições e se representam corretamente o projeto.
+4. Módulos, requisitos, premissas e restrições: verifique se estão claros, completos e coerentes com as funcionalidades realmente previstas ou desenvolvidas.
+5. Português e escrita acadêmica: identifique erros ortográficos, gramaticais, problemas de pontuação, repetições, frases confusas e trechos que possam ser melhor escritos.
+6. Organização e estrutura: analise os títulos, subtítulos, numeração das seções, sequência das informações e possíveis conteúdos repetidos ou fora de lugar.
+7. Precisão técnica: confira se as descrições de tecnologias, APIs, banco de dados, infraestrutura e funcionalidades estão tecnicamente coerentes. Não presuma que algo foi implementado sem evidências no documento ou nas informações que eu fornecer.
+8. Pontos faltantes: identifique informações importantes que deveriam estar na documentação, mas que ainda não foram apresentadas.
+Como quero receber a revisão:
+- Faça primeiro uma avaliação geral da documentação.
+- Depois, apresente os problemas encontrados, indicando a seção e o trecho correspondente.
+- Explique brevemente por que cada ponto precisa de atenção.
+- Sugira uma versão revisada dos trechos que realmente precisam de alteração.
+- Separe os erros obrigatórios de corrigir das melhorias opcionais.
+- Aponte possíveis contradições entre as seções.
+- Não reescreva o documento inteiro sem necessidade.
+- Preserve meu estilo de escrita e minha experiência pessoal, principalmente na justificativa.
+- Não invente informações, funcionalidades, resultados, tecnologias ou requisitos.
+- Quando não houver informações suficientes para confirmar algo, pergunte antes de sugerir uma alteração definitiva.
+Quero uma revisão criteriosa, como se você estivesse avaliando a documentação antes da entrega final ao professor. Meu objetivo é deixar o documento bem escrito, organizado, tecnicamente correto e coerente com o projeto que realmente desenvolvi."
