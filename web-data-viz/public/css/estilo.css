@@ -568,28 +568,33 @@ html {
 .footer {
   background-color: #000;
   border-top: 1px solid #a00;
-  padding: 40px 0 20px;
+  padding: 14px 0 8px;
   font-family: 'Poppins', sans-serif;
   color: #999;
+}
+
+.footer .container {
+  display: block;
+  height: auto;
 }
 
 .footer-topo {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
+  align-items: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .footer-marca {
-  max-width: 320px;
+  max-width: 280px;
 }
 
 .footer-titulo {
   color: #fff;
   font-family: 'Times New Roman', serif;
-  font-size: 26px;
-  margin: 0 0 10px;
+  font-size: 18px;
+  margin: 0 0 2px;
 }
 
 .footer-titulo span {
@@ -597,17 +602,17 @@ html {
 }
 
 .footer-marca p {
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 11px;
+  line-height: 1.4;
   margin: 0;
 }
 
 .footer-coluna h4 {
   color: #fff;
-  font-size: 14px;
+  font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin: 0 0 14px;
+  margin: 0 0 6px;
 }
 
 .footer-coluna ul {
@@ -617,13 +622,13 @@ html {
 }
 
 .footer-coluna li {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .footer-coluna a {
   color: #999;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 12px;
   transition: color 0.2s;
 }
 
@@ -636,34 +641,29 @@ html {
   background-color: red;
   color: #fff;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 12px 22px;
+  padding: 7px 14px;
   border-radius: 4px;
-  transition: background-color 0.2s, transform 0.2s;
+  white-space: nowrap;
+  transition: background-color 0.2s;
 }
 
 .footer-botao:hover {
   background-color: #b30000;
-  transform: translateY(-2px);
 }
 
 .footer-base {
-  margin-top: 30px;
-  padding-top: 18px;
+  margin-top: 10px;
+  padding-top: 8px;
   border-top: 1px solid #222;
   text-align: center;
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .footer-base p {
   margin: 0;
-}
-
-.footer .container {
-  display: block;
-  height: auto;
 }
 
 /* LOGIN E CADASTRO */
