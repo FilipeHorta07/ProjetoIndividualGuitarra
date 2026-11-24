@@ -1,9 +1,5 @@
 # The Metal Eras
 
-<p align="center">
-  <img src="../assets/imagem%20readme.jpeg" width="800px">
-</p>
-
 **A história do rock e da guitarra através das décadas de 1970 e 1980.**
 
 O The Metal Eras é um projeto individual desenvolvido como parte do curso de Bacharelado em Ciência da Computação da São Paulo Tech School (SPTech).
