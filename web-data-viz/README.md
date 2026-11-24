@@ -1,6 +1,8 @@
 # The Metal Eras
 
-<img src="./assets/imagem%20readme.jpeg" width="800px">
+<p align="center">
+  <img src="../assets/imagem%20readme.jpeg" width="800px">
+</p>
 
 **A história do rock e da guitarra através das décadas de 1970 e 1980.**
 
