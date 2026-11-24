@@ -1,105 +1,90 @@
-<img src="https://user-images.githubusercontent.com/46379117/192358781-9ca879e4-e55e-4d0d-b876-f9a4a2ed9ae8.png" width="600px">
+# The Metal Eras
 
-_Web Data Visualization = Visualização de Dados na Web_
+<img src="./assets/imagem%20readme.jpeg" width="800px">
 
-_Implementação de Referência para o seu Projeto de Primeiro Semestre_
+**A história do rock e da guitarra através das décadas de 1970 e 1980.**
 
-<hr>
+O The Metal Eras é um projeto individual desenvolvido como parte do curso de Bacharelado em Ciência da Computação da São Paulo Tech School (SPTech).
 
-# Como usar
+O projeto consiste em um site interativo sobre a história do rock e a evolução da guitarra, com foco nas décadas de 1970 e 1980. Além de apresentar bandas, artistas e características musicais dessas épocas, o site também compartilha minha trajetória pessoal como guitarrista e minha paixão pela música.
 
-1. Clone este repositório em sua máquina.
+## Objetivo
 
+Aplicar os conhecimentos adquiridos durante o curso de Ciência da Computação no desenvolvimento de uma aplicação web, utilizando o rock e a guitarra como tema central.
 
-1. Crie, no Banco de Dados, as tabelas necessárias para o funcionamento deste projeto.
-- Siga as instruções no arquivo **/src/database/script-tabelas.sql**
+A proposta também busca apresentar a influência de diferentes bandas e guitarristas na evolução do instrumento, além de proporcionar uma experiência interativa aos visitantes.
 
+## Funcionalidades
 
-3. Acesse o arquivo **app.js** e parametrize o ambiente.
-- Se você estiver utilizando o Ambiente de Produção (remoto), comente a linha 2 e deixe habilitada a linha 1 onde está o valor **var ambiente_processo = 'producao';**
-- Se você estiver utilizando o Ambiente de Desenvolvimento (local), comente a linha 1 e deixe habilitada a linha 2 onde está o valor **var ambiente_processo = 'desenvolvimento';**
+- **Apresentação das bandas:** conteúdos sobre bandas de rock e metal, suas histórias e características musicais.
+- **Minha trajetória:** apresentação da minha relação pessoal com a guitarra e minhas influências musicais.
+- **Cadastro e login:** sistema de identificação dos usuários.
+- **Votação:** questionário para que cada usuário cadastrado escolha sua banda favorita.
+- **Dashboard:** visualização dos resultados da votação por meio de gráficos e indicadores.
+- **Indicadores:** quantidade de votos por banda, total de participantes, porcentagens e banda mais votada.
 
-4. Adicione as credenciais de Banco de Dados no arquivo **.env** ou em **.env.dev**, seguindo as instruções neste.
+## Bandas abordadas
 
-5. Acesse este repositório no seu terminal (GitBash ou VSCode) e execute os comandos abaixo:
+O projeto contempla bandas que marcaram diferentes momentos do rock e do metal, principalmente nas décadas de 1970 e 1980:
 
-```
-npm i
-``` 
-_O comando acima irá instalar as bibliotecas necessárias para o funcionamento do projeto. As bibliotecas a serem instaladas estão listadas no arquivo **package.json** então é muito importante que este não seja alterado. Será criada uma nova pasta/diretório chamado **node_modules** quando o comando for finalizado, que é onde as bibliotecas estão localizadas. Não altere a pasta/diretório._
+- Led Zeppelin
+- Black Sabbath
+- Pink Floyd
+- Judas Priest
+- Metallica
+- Megadeth
+- Iron Maiden
+- Van Halen
+- Guns N' Roses
+- Pantera
 
-```
-npm start
-``` 
+## Tecnologias utilizadas
 
-_O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a sua parametrização feita nos passos anteriores._
+| Tecnologia | Utilização |
+|---|---|
+| HTML | Estrutura das páginas |
+| CSS | Estilização e identidade visual |
+| JavaScript | Interatividade e funcionalidades |
+| MySQL | Armazenamento das informações |
+| Web-Data-Viz | Comunicação entre a aplicação e o banco de dados |
+| Chart.js | Construção dos gráficos da dashboard |
+| Linux | Ambiente virtual para hospedagem do banco de dados |
+| Git e GitHub | Controle de versões e armazenamento do código |
 
-6. Para "ver" seu projeto funcionando, acesse em seu navegador o caminho **informado no terminal**.
+## Arquitetura da aplicação
 
-7. Caso queira parar a execução, tecle **CTRL+C** no terminal em que o projeto está rodando.
+A comunicação entre o site e o banco de dados é realizada por meio da API Web-Data-Viz.
 
-## Adicionar novo recurso ao projeto
+O fluxo de comunicação segue a seguinte estrutura:
 
-**"Recurso? O que é?"** Enquanto no Banco de Dados chamamos as tabelas de "entidades", quando tratamos de desenvolvimento WEB usamos a palavra "recurso" para se referir a algo que podemos criar, ler, atualizar ou deletar [1]. Estas ações são conhecidas como CRUD: Create, Read, Update e Delete. Para acessar cada ação, usamos os métodos HTTP: POST, GET, PUT e DELETE [2]. (Há outros verbos, porém com estes já conseguimos efetuar CRUDs). 
+1. O JavaScript envia uma requisição para a API.
+2. As rotas recebem e direcionam as requisições.
+3. Os Controllers organizam as operações solicitadas.
+4. Os Models realizam as operações no banco de dados MySQL.
+5. A API retorna as informações para o site.
+6. O JavaScript utiliza os dados recebidos para atualizar as funcionalidades e os gráficos da aplicação.
 
-**Tabela para ajudar a fazer a associação**
+## Como executar o projeto
 
-<table>
-  <tr>
-    <th>C.R.U.D</th>
-    <th>Ação</th>
-    <th>Tradução</th>
-    <th>Verbo HTTP *</th>
-    <th>Comando BD</th>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Create</td>
-    <td>Criar</td>
-    <td>POST</td>
-    <td>INSERT</td>
-  </tr>
-  <tr>
-    <td>R</td>
-    <td>Read</td>
-    <td>Ler</td>
-    <td>GET</td>
-    <td>SELECT</td>
-  </tr>
-  <tr>
-    <td>U</td>
-    <td>Update</td>
-    <td>Atualizar</td>
-    <td>PUT</td>
-    <td>UPDATE</td>
-  </tr>
-  <tr>
-    <td>D</td>
-    <td>Delete</td>
-    <td>Deletar</td>
-    <td>DELETE</td>
-    <td>DELETE</td>
-  </tr>
-</table>
+Para executar o projeto em ambiente local, é necessário:
 
-_* Você verá o verbo HTTP sendo apontado nos arquivos em /routes_
+1. Clonar ou baixar este repositório.
+2. Configurar o banco de dados MySQL conforme a estrutura do projeto.
+3. Configurar a conexão da API Web-Data-Viz com o banco de dados.
+4. Iniciar a API seguindo as instruções de seu repositório.
+5. Executar o site em um servidor local ou ambiente de desenvolvimento.
 
-**"E no meu projeto, o que seria um recurso?"** Em web-data-viz manipulamos os recursos **usuário**, **aviso** e **medida**. Podemos conferir isso vendo para quais entidades foram criados os caminhos de inserção e captura de dados, que envolve os diretórios **routes**, **controllers** e **models**.
+**Observação:** a execução depende da configuração correta do banco de dados e da API. Os parâmetros de conexão devem ser definidos nos arquivos de configuração correspondentes.
 
-Abaixo, uma figura que ajuda a compreender o caminho percorrido para, por exemplo, efetuar o cadastro de um usuário:
+## Contexto acadêmico
 
+Projeto desenvolvido individualmente para as disciplinas da São Paulo Tech School (SPTech), com o objetivo de integrar conhecimentos de desenvolvimento web, banco de dados, programação e infraestrutura.
 
-![image](https://github.com/user-attachments/assets/d576f178-0da6-437e-b5c9-658e3ebaf6ca)
+**Curso:** Bacharelado em Ciência da Computação  
+**Instituição:** São Paulo Tech School (SPTech)  
+**Autor:** Filipe Horta Santos  
+**Ano:** 2026
 
+---
 
-
-**Entendi o que é um recurso e gostaria de adicionar um novo ao meu projeto! Como faz?**  
-- Primeiro, crie a tabela no Banco de Dados referente a este recurso. Exemplos de recursos comuns de serem adicionados ao projeto no primeiro semestre: Silo, Aquário, Sala, Andar, Endereço, Mercado, Prateleira, Unidade, Carro, Caminhão...  
-- Assim que criada a tabela, faça todo o caminho de **front-end → routes → controllers → models** replicando o que já existe!  
-- Exemplo, se você quiser a funcionalidade de adicionar um novo Aquário, deve criar arquivos referentes ao aquario nos diretórios e replicar também as funções.  
-- Dica: A implementação de AVISO já contém o CRUD completo! :wink:
- 
-### Fontes bibliográficas
-
-[1] https://datatracker.ietf.org/doc/html/rfc2396  
-[2] https://datatracker.ietf.org/doc/html/rfc7231
+*The Metal Eras — Uma jornada pela história do rock e da guitarra.*
